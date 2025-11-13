@@ -63,13 +63,13 @@ public class Algebra {
 			return 0;
 		}
 		else if ((x1<0 && x2>0)){
-			for (int i=x2; i<0; i++){
+			for (int i=0; i<x2; i++){
 				x1=minus(x1,x2);
 			}
 			return x1;
 		}
 		else if (x1>0 && x2<0){
-			for (int i=x1; i<0; i++){
+			for (int i=0; i<x1; i++){
 				x2=minus(x2,x1);
 			}
 			return x2;
@@ -85,17 +85,25 @@ public class Algebra {
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
+		if(n==0){
+			return 1;
+		}
+		else{
 		int x1=x;
 		for (int i=1; i<n; i++){
 			x=times(x,x1);
 		}
 		return x;
 	}
+	}
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
 		if (x1<x2 && x1>0){ //3/4
 			return 0;
+		}
+		else if(x2==0){
+			return -1;
 		}
 		else if (x1>x2 && x1<0){ //-3/-6
 			return 0;
