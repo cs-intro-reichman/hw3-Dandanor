@@ -173,7 +173,11 @@ public class Algebra {
 		int sqrt=0;
 		double eps = 0.01;
 		for (int i = 1; i<=x; i++){
-			if (x-i*i<=eps){
+			if (i*i==x){
+				sqrt = i;
+				break;
+			}
+			else if (x-i*i<=eps){
 				 sqrt=i-1;
 				 break;
 			}
