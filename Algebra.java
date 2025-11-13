@@ -94,16 +94,43 @@ public class Algebra {
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
-		if (x1<x2){
+		if (x1<x2 && x1>0){ //3/4
 			return 0;
 		}
-		else if (x1==x2){
+		else if (x1>x2 && x1<0){ //-3/-6
+			return 0;
+		}
+		else if (x1==x2){ //3/3
 			return 1;
 		}
-		else{
+		else if (x1>x2 && x2>0){ //6/3
 			int count = 0;
 			while (x1>=x2){
 				x1=minus(x1,x2);
+				count++;
+			}
+			return count;
+		}
+		else if (x1>x2 && x2<0 && x1>0){ //6/-3
+			int count = 1;
+			while (x1>x2){
+				x1=plus(x1,x2);
+				count--;
+			}
+			return count;
+		}
+		else if (x1<x2 && x1<0 && x2>0){ //-3/3
+			int count = 1;
+			while (x1<x2){
+				x1 = plus(x1,x2);
+				count--;
+			}
+			return count;
+		}
+		else{ //-6/-3
+			int count = 0;
+			while (x1<=x2){
+				x1 = minus(x1,x2);
 				count++;
 			}
 			return count;
