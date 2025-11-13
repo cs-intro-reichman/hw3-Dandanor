@@ -66,11 +66,13 @@ public class Algebra {
 			for (int i=x2; i<0; i++){
 				x1=minus(x1,x2);
 			}
+			return x1;
 		}
 		else if (x1>0 && x2<0){
 			for (int i=x1; i<0; i++){
 				x2=minus(x2,x1);
 			}
+			return x2;
 		}
 		else{
 		int y = x1;
