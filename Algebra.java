@@ -111,6 +111,9 @@ public class Algebra {
 		if (x1<x2 && x1>0){ //3/4
 			return 0;
 		}
+		else if(x1==0){
+			return 0;
+		}
 		else if(x2==0){
 			throw new IllegalArgumentException("can't divide by 0");
 		}
