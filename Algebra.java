@@ -21,6 +21,8 @@ public class Algebra {
    		System.out.println(sqrt(36));
 		System.out.println(sqrt(263169));
    		System.out.println(sqrt(76123));
+		System.out.println(times(-3,3));
+		System.out.println(times(-3,-3));
 	}  
 
 	// Returns x1 + x2
@@ -63,16 +65,25 @@ public class Algebra {
 			return 0;
 		}
 		else if ((x1<0 && x2>0)){
-			for (int i=0; i<x2; i++){
-				x1=minus(x1,x2);
+			int y=x1;
+			for (int i=1; i<x2; i++){
+				x1=plus(x1,y);
 			}
 			return x1;
 		}
 		else if (x1>0 && x2<0){
-			for (int i=0; i<x1; i++){
-				x2=minus(x2,x1);
+			int y = x2;
+			for (int i=1; i<x1; i++){
+				x2=plus(x2,y);
 			}
 			return x2;
+		}
+		else if (x1<0 && x2<0){
+			int y = x1;
+			for (int i=x2; i<1; i++){
+				x1 = minus(x1,y);
+			}
+			return x1;
 		}
 		else{
 		int y = x1;
