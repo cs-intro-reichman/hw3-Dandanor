@@ -21,8 +21,6 @@ public class Algebra {
    		System.out.println(sqrt(36));
 		System.out.println(sqrt(263169));
    		System.out.println(sqrt(76123));
-		System.out.println(times(-3,3));
-		System.out.println(times(-3,-3));
 	}  
 
 	// Returns x1 + x2
@@ -114,7 +112,7 @@ public class Algebra {
 			return 0;
 		}
 		else if(x2==0){
-			return -1;
+			throw new IllegalArgumentException("can't divide by 0");
 		}
 		else if (x1>x2 && x1<0){ //-3/-6
 			return 0;
@@ -176,7 +174,7 @@ public class Algebra {
 		double eps = 0.01;
 		for (int i = 1; i<=x; i++){
 			if (x-i*i<=eps){
-				 sqrt=i;
+				 sqrt=i-1;
 				 break;
 			}
 		}
