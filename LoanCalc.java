@@ -32,7 +32,6 @@ public class LoanCalc {
 		for (int i=1; i<=n;i++){
 			owe=(owe-payment)*(1+rate*0.01);
 		}
-		System.out.println("owe is "+owe);
 		return owe;
 	}
 	
