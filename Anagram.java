@@ -13,10 +13,10 @@ public class Anagram {
 		// Tests the randomAnagram function.
 		System.out.println("silent and " + randomAnagram("silent") + " are anagrams.");
 		
-		// Performs a stress test of randomAnagram 
+		 //Performs a stress test of randomAnagram 
 		String str = "1234567";
 		Boolean pass = true;
-		//// 10 can be changed to much larger values, like 1000
+		// 10 can be changed to much larger values, like 1000
 		for (int i = 0; i < 10; i++) {
 			String randomAnagram = randomAnagram(str);
 			System.out.println(randomAnagram);
@@ -36,8 +36,21 @@ public class Anagram {
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
-		// Replace the following statement with your code
-		return "";
+		String newstr="";
+		String abc = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		for (int i=0; i<=str.length()-1;i++){
+			char x=str.charAt(i);
+			if (abc.indexOf(x)!=-1){
+				if (x=='\b'){
+					newstr+=x;
+				}
+				else{
+					x= Character.toLowerCase(x);
+					newstr+=x;
+				}
+			}
+		}
+		return newstr;
 	} 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
