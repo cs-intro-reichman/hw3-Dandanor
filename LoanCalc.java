@@ -61,7 +61,7 @@ public class LoanCalc {
 		double max= loan;
 		double g = (max+min)/2.0;
 		double eb = endBalance(loan, rate, n, g);
-		while (Math.abs(eb)>epsilon){
+		while (max-min>epsilon){
 			if (eb>0){//paid too little
 				min = g;
 			}
@@ -71,7 +71,6 @@ public class LoanCalc {
 			g=(max+min)/2.0;
 			eb = endBalance(loan, rate, n, g);
 			iterationCounter++;
-			System.out.println(iterationCounter +" " + eb);
 		}
 		return g;
     }
