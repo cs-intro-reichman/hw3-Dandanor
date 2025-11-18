@@ -13,10 +13,10 @@ public class Anagram {
 		// Tests the randomAnagram function.
 		System.out.println("silent and " + randomAnagram("silent") + " are anagrams.");
 		
-		// Performs a stress test of randomAnagram 
+		 //Performs a stress test of randomAnagram 
 		String str = "1234567";
 		Boolean pass = true;
-		//// 10 can be changed to much larger values, like 1000
+		// 10 can be changed to much larger values, like 1000
 		for (int i = 0; i < 10; i++) {
 			String randomAnagram = randomAnagram(str);
 			System.out.println(randomAnagram);
@@ -28,22 +28,53 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		// Replace the following statement with your code
-		return false;
+		str1 = preProcess(str1);
+		str2 = preProcess(str2);
+		if(str1.length()!=str2.length()){
+			return false;
+		}
+		else{
+		int len = str1.length()-1;
+		for (int i=0;i<=len;i++){
+			int x = str1.charAt(i); //h
+			int y = str2.indexOf(x);
+			if (y==-1){
+				return false;
+			}
+			else{
+				str2 = str2.substring(0,y) + str2.substring(y+1);
+			}
+		}
+		return true;
 	}
+}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
-		// Replace the following statement with your code
-		return "";
-	} 
+		String newstr="";
+		String abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		for (int i=0; i<=str.length()-1;i++){
+			char x=str.charAt(i);
+			if (abc.indexOf(x)!=-1){
+					x= Character.toLowerCase(x);
+					newstr+=x;
+				}
+			}
+		return newstr;
+	}
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
-		// Replace the following statement with your code
-		return "";
+		String newstr="";
+		str=preProcess(str);
+		for (int i=str.length()-1;i>=0;i--){
+			int rndx = (int)(Math.random()*(i+1));
+			newstr+=str.charAt(rndx);
+			str=str.substring(0, rndx)+str.substring(rndx+1);
+		}
+		return newstr;
 	}
 }
